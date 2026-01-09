@@ -1,0 +1,529 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Blog - Cultural Chronicles</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="assets\css\main.css">
+  <link href="assets\css\bootstrap-icons\bootstrap-icons.css" rel="stylesheet">
+  <link href="assets\css\animate.css\animate.min.css" rel="stylesheet">
+  <link href="assets\css\glightbox\css\glightbox.min.css" rel="stylesheet">
+  <link href="assets\css\swiper\swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets\css\css_files_bootstrap\bootstrap.min.css" rel="stylesheet">
+  <link href="assets\css\aos\aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    /* styles.css */
+
+/* Writing Block */
+        .writing-block {
+            padding: 10px;
+            background-color: #e8dcdc;
+            border-radius: 50px; /* High border radius for rounded corners */
+            cursor: pointer;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+
+        .writing-block .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .writing-prompt {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Writing Modal */
+        .writing-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .writing-box {
+            background: #fff;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .writing-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .writing-header .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-weight: bold;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .writing-content {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .media-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .media-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #insert-image {
+            background-color: #ff5722; /* Orange */
+        }
+
+        #insert-video {
+            background-color: #2196f3; /* Blue */
+        }
+
+        #insert-audio {
+            background-color: #4caf50; /* Green */
+        }
+
+  </style>
+  <script>
+    // scripts.js
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const writingBlock = document.getElementById('writing-block');
+          const writingModal = document.getElementById('writing-modal');
+          const closeModal = document.querySelector('.close-modal');
+
+          // Open modal when clicking on the writing block
+          writingBlock.addEventListener('click', () => {
+              writingModal.style.display = 'flex';
+          });
+
+          // Close modal when clicking the close button
+          closeModal.addEventListener('click', () => {
+              writingModal.style.display = 'none';
+          });
+
+          // Optionally handle media insertion here
+          document.getElementById('insert-image').addEventListener('click', () => {
+              // Handle image insertion
+              alert('Insert Image button clicked');
+          });
+
+          document.getElementById('insert-video').addEventListener('click', () => {
+              // Handle video insertion
+              alert('Insert Video button clicked');
+          });
+
+          document.getElementById('insert-audio').addEventListener('click', () => {
+              // Handle audio insertion
+              alert('Insert Audio button clicked');
+          });
+      });
+
+  </script>
+</head>
+
+<body class="blog-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">EternalIndia</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" style="background: url(https://blog.tcea.org/wp-content/uploads/2021/06/pexels-navneet-shanu-672630-1170x878.jpg);">
+      <div class="container position-relative">
+        <h1>Cultural Chronicles</h1>
+        <p>Explore stories that celebrate our heritage, and share your own with respect and care, honoring our traditions.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Chronicles</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+  
+
+    <!-- Blog Posts Section -->
+    <section id="blog-posts" class="blog-posts section">
+
+      <section id="writing-block" class="writing-block">
+        <div class="container">
+            <div class="profile">
+                <img src="https://th.bing.com/th/id/OIP.0OJLwQwXtLb_KjQS8xZDQAHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture" class="profile-pic">
+                <span class="writing-prompt">Start a post</span>
+            </div>
+        </div>
+    </section>
+    <div id="writing-modal" class="writing-modal">
+      <div class="writing-box">
+          <div class="writing-header">
+              <img src="https://th.bing.com/th/id/OIP.0OJLwQwXtLb_KjQS8xZDQAHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture" class="profile-pic">
+              <div class="user-info">
+                  <span class="user-name">Anushka Swaraj</span>
+              </div>
+              <button class="close-modal">×</button>
+          </div>
+          <div class="writing-content">
+              <textarea id="editor" placeholder="What's on your mind?"></textarea>
+              <div class="media-buttons">
+                  <button id="insert-image">Insert Image</button>
+                  <button id="insert-video">Insert Video</button>
+                  <button id="insert-audio">Insert Audio</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <article>
+
+              <div class="post-img">
+                <img src="https://en-media.thebetterindia.com/uploads/2024/05/marble-palace-kolkata-1716380352.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">History</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Built Using 126 Types of Marble, This Palace Has Cultural Artefacts From Around the World</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- https://thebetterindia.com/350504/marble-palace-kolkata-museum-tour-first-private-zoo-raja-rajendra-mullick-history/ -->
+                <img src="https://media.licdn.com/dms/image/v2/D5635AQFak0_IadjNAQ/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1723810648256?e=1726030800&v=beta&t=3dOEB7lIB21HToGs4k8Ob2AsAxwxnJdud0RrZiQQ4Yc" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Akshita Goyal</p>
+                  <p class="post-date">
+                    <time datetime="2022-01-01">May 24, 2024</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-lg-4">
+            <article>
+
+              <div class="post-img">
+                <!-- https://thebetterindia.com/335712/garba-in-gujarat-on-unesco-intangible-cultural-heritage-list-durga-pujo-kumbh-mela-india/ -->
+                <img src="https://en-media.thebetterindia.com/uploads/2023/12/cultural-heritage-1-1702042657.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">Culture</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Garba to Durga Puja, 15 Indian Favourites on UNESCO’s List of Intangible Cultural Heritage</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQE3R5_0AwOD4Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1709233247576?e=1730937600&v=beta&t=DoC0wGwsOOdbk93_wCO2cY5zkPeQ6u6UVCCZbx2etr8" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Shatakshi Gupta</p>
+                  <p class="post-date">
+                    <time datetime="2022-01-01">Mar 05, 2024</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-lg-4">
+            <article>
+
+              <div class="post-img">
+                <!-- https://thebetterindia.com/335593/padma-shri-jagdish-and-kamla-mittal-museum-of-indian-art-hyderabad-indian-history/ -->
+                <img src="https://en-media.thebetterindia.com/uploads/2023/12/jagdish-mittal-2_11zon-1701956303.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">Fine Arts</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Discover how this 99-YO Padma Shri Has Collected 2000 of India’s Finest Artifacts</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQEbtcN2u3ww6Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1670595424290?e=1730937600&v=beta&t=aqxL_JBeFqQpW2VfebQw9y2u2KOh5IJDiCUz0JNA3b4" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Nandini Parashar</p>
+                  <p class="post-date">
+                    <time datetime="2022-01-01">Jan 15 , 2024</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-lg-4">
+            <article>
+
+              <div class="post-img">
+                <img src="https://en-media.thebetterindia.com/uploads/2024/04/food-1-1712588147.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">Food</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Love Seviyan? Here’s How The Sweet Treat Won Over India</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="assets/img/blog/blog-author-4.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Lisa Neymar</p>
+                  <p class="post-date">
+                    <time datetime="2022-01-01">Jun 30, 2022</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-lg-4">
+            <article>
+
+              <div class="post-img">
+                <!-- https://thebetterindia.com/344734/tata-samvaad-jamshedpur-sumanti-devi-artisan-preserves-oraon-art-mud-natural-finger-painting/ -->
+                <img src="https://en-media.thebetterindia.com/uploads/2024/03/Untitled-design-2-1710338693.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">Culture</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">I Spent 15 Years to Save One of Jharkhand’s Most Sustainable Artforms from the Impact of Migration</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="assets/img/blog/blog-author-5.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Denis Peterson</p>
+                  <p class="post-date">
+                    <time datetime="2022-01-01">Jan 30, 2022</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-lg-4">
+            <article>
+
+              <div class="post-img">
+                <img src="https://en-media.thebetterindia.com/uploads/2024/01/Feature-Image-Madhu-Dandavate--1705675603.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">History</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">A Freedom Fighter’s Idea Revolutionised India’s Rail Travel Making it Comfortable for Millions</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <img src="assets/img/blog/blog-author-6.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <div class="post-meta">
+                  <p class="post-author">Mika Lendon</p>
+                  <p class="post-date">
+                    <time datetime="2022-01-01">Feb 14, 2022</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+        </div>
+      </div>
+
+    </section><!-- /Blog Posts Section -->
+
+    <!-- Blog Pagination Section -->
+    <section id="blog-pagination" class="blog-pagination section">
+
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <ul>
+            <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#" class="active">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li>...</li>
+            <li><a href="#">10</a></li>
+            <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </section><!-- /Blog Pagination Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <h3 class="sitename">Selecao</h3>
+      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-skype"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Selecao</strong> <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets\css\bootstrap js\bootstrap.min.js"></script>
+  <script src="assets\css\php-email-form\validate.js"></script>
+  <script src="assets\css\aos\aos.js"></script>
+  <script src="assets\css\glightbox\js\glightbox.min.js"></script>
+  <script src="assets\css\imagesloaded\imagesloaded.pkgd.min.js"></script>
+  <script src="assets\css\isotope-layout\isotope.pkgd.min.js"></script>
+  <script src="assets\css\swiper\swiper-bundle.min.js"></script>
+  <script src="assets\css\js\main.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+    "name": "InsideBharat",
+    "short_name": "InsideBharat",
+    "description": "Our website celebrates India's vibrant traditions and timeless heritage. Discover the stories, festivals, and crafts that define the Indian experience, offering you a deeper connection to the nation's rich cultural tapestry.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#7e3535",
+    "icons": [
+      {
+        "src": "assets/css/img/png4.png",
+        "type": "png"
+      },
+      {
+        "src": "assets/css/img/png4.png",
+        "type": "png"
+      }
+    ]
+  }
+  
